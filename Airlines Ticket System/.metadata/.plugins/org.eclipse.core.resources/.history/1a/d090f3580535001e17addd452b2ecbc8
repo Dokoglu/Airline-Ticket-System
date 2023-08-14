@@ -1,0 +1,19 @@
+package com.eticket.ETicket.demo.model;
+
+public class Airport {
+	
+	private int id;
+	private String name;
+	private String country;
+	private String city;
+	
+	public Airport(int id, String name, String country, String city) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.country = country;
+		this.city = city;
+	}
+	
+
+}

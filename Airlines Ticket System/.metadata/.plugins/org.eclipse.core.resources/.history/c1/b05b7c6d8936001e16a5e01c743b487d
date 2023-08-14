@@ -1,0 +1,11 @@
+package com.eticket.ETicket.demo.service;
+
+import com.eticket.ETicket.demo.dto.CreateRouteRequest;
+import com.eticket.ETicket.demo.dto.SearchRouteRequest;
+
+public interface RouteService {
+	
+	void addRoute(CreateRouteRequest createRouteRequest);
+	void searchRoute(SearchRouteRequest searchRouteRequest);
+
+}

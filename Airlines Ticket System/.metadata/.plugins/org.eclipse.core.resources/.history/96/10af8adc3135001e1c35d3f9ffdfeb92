@@ -1,0 +1,8 @@
+package com.eticket.ETicket.demo.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.util.RouteMatcher.Route;
+
+public interface RouteRepository  extends JpaRepository<Route,Integer>{
+
+}

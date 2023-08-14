@@ -1,0 +1,9 @@
+package com.eticket.ETicket.demo.model;
+
+
+public class Ticket extends Flight {
+	
+	private int ticketID;
+	
+
+}

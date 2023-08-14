@@ -1,0 +1,5 @@
+package com.eticket.ETicket.demo.dto;
+
+public class SearchFlightRequest {
+
+}

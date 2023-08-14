@@ -1,0 +1,49 @@
+package com.eticket.ETicket.demo.service;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.eticket.ETicket.demo.dto.CreateRouteRequest;
+import com.eticket.ETicket.demo.dto.SearchRouteRequest;
+import com.eticket.ETicket.demo.model.Routes;
+import com.eticket.ETicket.demo.repository.RouteRepository;
+
+@Service
+public class RouteManager implements RouteService{
+	
+	private final RouteRepository routeRepository ;
+	
+
+	public RouteManager(RouteRepository routeRepository) {
+		this.routeRepository = routeRepository;
+	}
+
+	@Override
+	public void addRoute(CreateRouteRequest createRouteRequest) {
+		// TODO Auto-generated method stub
+		Routes route=new Routes();
+		route.setStartingPoint(createRouteRequest.getStartingPoint());
+		route.setEndingPoint(createRouteRequest.getEndingPoint());
+		this.routeRepository.save(route);
+		
+	}
+
+	@Override
+	public List<Routes> searchRoute(SearchRouteRequest searchRouteRequest) {
+		
+		
+		return null;
+	}
+	
+	public boolean IsExistRoute(int id) {
+		SearchRouteRequest routeRequest=new SearchRouteRequest();
+		if(this.routeRepository.findById(routeRequest.getId()) != null) {
+		 return true;
+		}
+		else {
+			return false;
+		}
+	}
+
+}

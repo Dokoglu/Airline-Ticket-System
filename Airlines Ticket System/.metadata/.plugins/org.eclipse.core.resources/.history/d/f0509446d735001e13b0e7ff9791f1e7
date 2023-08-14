@@ -1,0 +1,34 @@
+package com.eticket.ETicket.demo.service;
+
+import org.springframework.stereotype.Service;
+
+import com.eticket.ETicket.demo.dto.CreateBuyTicketRequest;
+import com.eticket.ETicket.demo.model.Ticket;
+import com.eticket.ETicket.demo.repository.TicketRepository;
+
+@Service
+public class TicketManager  implements TicketService{
+
+	private final TicketRepository ticketRepository;
+	
+	public TicketManager(TicketRepository ticketRepository) {
+		
+		this.ticketRepository = ticketRepository;
+	}
+
+	@Override
+	public void buyTicket(CreateBuyTicketRequest buyTicketRequest) {
+		// TODO Auto-generated method stub
+		Ticket ticket =new Ticket();
+		ticket.setFlightID(buyTicketRequest.getFlightID());
+		ticket.setDurationOfFlight(buyTicketRequest.getDurationOfFlight());
+		ticket.setDepartureCity(buyTicketRequest.getDepartureCity());
+		ticket.setDepartureAirport(buyTicketRequest.getDepartureAirport());
+		ticket.setArrivalCity(buyTicketRequest.getArrivalCity());
+		ticket.setArrivalAirport(buyTicketRequest.getArrivalAirport());
+		ticket.setPrice(buyTicketRequest.getPrice());
+		this.ticketRepository.save(ticket);
+		
+	}
+
+}

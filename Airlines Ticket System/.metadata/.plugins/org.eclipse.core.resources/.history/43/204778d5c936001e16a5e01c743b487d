@@ -1,0 +1,122 @@
+package com.eticket.ETicket.demo.model;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
+public class Ticket  {
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private int ticketID;
+	
+	private int flightID;
+	private int durationOfFlight;
+	private String departureAirport;
+	private String arrivalAirport;
+	private String departureCity;
+	private String arrivalCity;
+	private float price;
+	private String creditCardNumber;
+	
+	public Ticket(int ticketID, int flightID, int durationOfFlight, String departureAirport,
+			String arrivalAirport,
+			String departureCity, String arrivalCity, float price,
+			String creditCardNumber) {
+		
+		this.ticketID = ticketID;
+		this.flightID = flightID;
+		this.durationOfFlight = durationOfFlight;
+		this.departureAirport = departureAirport;
+		this.arrivalAirport = arrivalAirport;
+		this.departureCity = departureCity;
+		this.arrivalCity = arrivalCity;
+		this.price = price;
+		this.creditCardNumber=creditCardNumber;
+	}
+
+	public Ticket() {
+		
+	}
+
+	public int getTicketID() {
+		return ticketID;
+	}
+
+	public void setTicketID(int ticketID) {
+		this.ticketID = ticketID;
+	}
+
+	public int getFlightID() {
+		return flightID;
+	}
+
+	public void setFlightID(int flightID) {
+		this.flightID = flightID;
+	}
+
+	public int getDurationOfFlight() {
+		return durationOfFlight;
+	}
+
+	public void setDurationOfFlight(int durationOfFlight) {
+		this.durationOfFlight = durationOfFlight;
+	}
+
+	public String getDepartureAirport() {
+		return departureAirport;
+	}
+
+	public void setDepartureAirport(String departureAirport) {
+		this.departureAirport = departureAirport;
+	}
+
+	public String getArrivalAirport() {
+		return arrivalAirport;
+	}
+
+	public void setArrivalAirport(String arrivalAirport) {
+		this.arrivalAirport = arrivalAirport;
+	}
+
+	public String getDepartureCity() {
+		return departureCity;
+	}
+
+	public void setDepartureCity(String departureCity) {
+		this.departureCity = departureCity;
+	}
+
+	public String getArrivalCity() {
+		return arrivalCity;
+	}
+
+	public void setArrivalCity(String arrivalCity) {
+		this.arrivalCity = arrivalCity;
+	}
+
+	public float getPrice() {
+		return price;
+	}
+
+	public void setPrice(float price) {
+		this.price = price;
+	}
+
+	public int getCreditCardNumber() {
+		return creditCardNumber;
+	}
+
+	public void setCreditCardNumber(int creditCardNumber) {
+		this.creditCardNumber = creditCardNumber;
+	}
+	
+	
+	
+	
+	
+	
+
+}

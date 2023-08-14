@@ -1,0 +1,22 @@
+package com.eticket.ETicket.demo.model;
+
+
+public class Ticket extends Flight {
+	
+	private int ticketID;
+	private float price;
+	
+	public Ticket(int flightID, int durationOfFlight, String departureAirport, 
+			String arrivalAirport,String departureCity, String arrivalCity, 
+			int ticketID, float price) {
+		super(flightID, durationOfFlight, departureAirport, arrivalAirport, departureCity, arrivalCity);
+		this.ticketID = ticketID;
+		this.price = price;
+	}
+
+	public Ticket() {
+		super();
+	}
+	
+
+}

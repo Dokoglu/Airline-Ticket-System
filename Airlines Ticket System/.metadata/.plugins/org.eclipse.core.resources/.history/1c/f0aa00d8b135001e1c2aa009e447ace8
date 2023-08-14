@@ -1,0 +1,20 @@
+package com.eticket.ETicket.demo.controller;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.eticket.ETicket.demo.service.AirportService;
+
+@RestController
+@RequestMapping("/airports")
+public class AirportController {
+	
+	private final AirportService airportService;
+
+	public AirportController(AirportService airportService) {
+		
+		this.airportService = airportService;
+	}
+	
+
+}

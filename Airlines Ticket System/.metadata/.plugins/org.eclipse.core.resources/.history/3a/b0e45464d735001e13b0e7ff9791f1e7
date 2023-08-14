@@ -1,0 +1,60 @@
+package com.eticket.ETicket.demo.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.stereotype.Service;
+
+import com.eticket.ETicket.demo.dto.CreateBuyTicketRequest;
+import com.eticket.ETicket.demo.dto.CreateFlightRequest;
+import com.eticket.ETicket.demo.dto.SearchTicketRequest;
+import com.eticket.ETicket.demo.model.Ticket;
+import com.eticket.ETicket.demo.repository.TicketRepository;
+
+@Service
+public class TicketManager  implements TicketService{
+
+	private final TicketRepository ticketRepository;
+	
+	public TicketManager(TicketRepository ticketRepository) {
+		
+		this.ticketRepository = ticketRepository;
+	}
+
+	@Override
+	public void buyTicket(CreateBuyTicketRequest buyTicketRequest) {
+		// TODO Auto-generated method stub
+		Ticket ticket =new Ticket();
+		ticket.setFlightID(buyTicketRequest.getFlightID());
+		ticket.setDurationOfFlight(buyTicketRequest.getDurationOfFlight());
+		ticket.setDepartureCity(buyTicketRequest.getDepartureCity());
+		ticket.setDepartureAirport(buyTicketRequest.getDepartureAirport());
+		ticket.setArrivalCity(buyTicketRequest.getArrivalCity());
+		ticket.setArrivalAirport(buyTicketRequest.getArrivalAirport());
+		ticket.setPrice(buyTicketRequest.getPrice());
+		this.ticketRepository.save(ticket);
+		
+	}
+
+	@Override
+	public void riseTicketPrice(CreateFlightRequest createFlightRequest) {
+		// TODO Auto-generated method stub
+		CreateBuyTicketRequest buyTicketRequest=new CreateBuyTicketRequest();
+		int i=createFlightRequest.getQuotaOfFlight();
+		float k=buyTicketRequest.getPrice();
+		while(i+=(i+(i*0.1))) {
+			
+		}
+		
+	}
+
+	@Override
+	public List<Ticket> searchTicket(SearchTicketRequest searchTicketRequest) {
+		List<Ticket> ticket=this.ticketRepository.findById(searchTicketRequest.getTicketID()).get();
+		return null;
+		
+		
+		
+	}
+
+}

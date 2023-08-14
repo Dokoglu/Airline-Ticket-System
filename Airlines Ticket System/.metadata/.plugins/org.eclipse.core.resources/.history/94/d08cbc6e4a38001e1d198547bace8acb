@@ -1,0 +1,63 @@
+package com.eticket.ETicket.demo.service;
+
+import org.springframework.stereotype.Service;
+
+import com.eticket.ETicket.demo.dto.CreateFlightRequest;
+import com.eticket.ETicket.demo.model.Flight;
+import com.eticket.ETicket.demo.repository.FlightRepository;
+import com.eticket.ETicket.demo.utilities.mappers.ModelMapperService;
+
+@Service
+public class FlightManager implements FlightService{
+	
+	private final FlightRepository flightRepository;
+	private final ModelMapperService modelMapperService;
+	
+
+	public FlightManager(FlightRepository flightRepository,
+			ModelMapperService modelMapperService) {
+		this.flightRepository = flightRepository;
+		this.modelMapperService=modelMapperService;
+	}
+
+		
+		this.flightRepository.save(flight);
+	}
+	public double increaseQuota(double currentQuota) {
+		CreateFlightRequest createFlightRequest=new CreateFlightRequest();
+		double quota=createFlightRequest.getCurrentQuota();
+		double newQuota=quota+quota*0.1;
+		quota=newQuota;
+		return quota;
+	}
+	
+	public boolean shouldIncrease(String request) {
+		CreateFlightRequest createFlightRequest=new CreateFlightRequest();
+		String requestIncrease=createFlightRequest.getRequestIncrease();		
+		if(requestIncrease.equals("Yes")) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+
+
+	@Override
+	public void addFlight(CreateFlightRequest createFlightRequest) {
+		// TODO Auto-generated method stub
+		Flight flight=new Flight();
+		double flightPrice=createFlightRequest.getFlightPrice();
+		double quota=createFlightRequest.getCurrentQuota();
+		if(shouldIncrease("Yes")) {
+			quota=increaseQuota(quota);
+			flightPrice=flightPrice+flightPrice*0.1;
+			
+		}
+		
+		this.flightRepository.save(flight);
+	
+		
+	}
+
+}

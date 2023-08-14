@@ -1,0 +1,97 @@
+package com.eticket.ETicket.demo.dto;
+
+import java.sql.Date;
+
+public class CreateFlightRequest {
+	
+	private String departureAirport;
+	private String arrivalAirport;
+	private String departureCity;
+	private String arrivalCity;
+	private Date departureDate;
+	private double currentQuota;
+	private int targetQuota;
+	private double flightPrice;
+	
+	public CreateFlightRequest(String departureAirport, String arrivalAirport
+			,String departureCity, String arrivalCity, Date departureDate,
+			double currentQuota, double flightPrice) {
+		
+		this.departureAirport = departureAirport;
+		this.arrivalAirport = arrivalAirport;
+		this.departureCity=departureCity;
+		this.arrivalCity=arrivalCity;
+		this.departureDate=departureDate;
+		this.currentQuota=currentQuota;
+		this.flightPrice=flightPrice;
+	}
+
+	public CreateFlightRequest() {
+		
+	}
+
+	public String getDepartureAirport() {
+		return departureAirport;
+	}
+
+	public void setDepartureAirport(String departureAirport) {
+		this.departureAirport = departureAirport;
+	}
+
+	public String getArrivalAirport() {
+		return arrivalAirport;
+	}
+
+	public void setArrivalAirport(String arrivalAirport) {
+		this.arrivalAirport = arrivalAirport;
+	}
+
+	public String getDepartureCity() {
+		return departureCity;
+	}
+
+	public void setDepartureCity(String departureCity) {
+		this.departureCity = departureCity;
+	}
+
+	public String getArrivalCity() {
+		return arrivalCity;
+	}
+
+	public void setArrivalCity(String arrivalCity) {
+		this.arrivalCity = arrivalCity;
+	}
+
+	public Date getDepartureDate() {
+		return departureDate;
+	}
+
+	public void setDepartureDate(Date departureDate) {
+		this.departureDate = departureDate;
+	}
+
+	public double getCurrentQuota() {
+		return currentQuota;
+	}
+
+	public void setCurrentQuota(double currentQuota) {
+		this.currentQuota = currentQuota;
+	}
+
+	public double getFlightPrice() {
+		return flightPrice;
+	}
+
+	public void setFlightPrice(double flightPrice) {
+		this.flightPrice = flightPrice;
+	}
+	
+
+	
+	
+	
+	
+	
+	
+
+}

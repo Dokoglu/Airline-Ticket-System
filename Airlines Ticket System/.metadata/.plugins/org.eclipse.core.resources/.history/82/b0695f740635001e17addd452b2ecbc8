@@ -1,0 +1,23 @@
+package com.eticket.ETicket.demo.service;
+
+import com.eticket.ETicket.demo.dto.CreateAirportRequest;
+import com.eticket.ETicket.demo.repository.AirportRepository;
+
+public class AirportManager implements AirportService {
+	
+	private final AirportRepository airportRepository;
+	
+
+	public AirportManager(AirportRepository airportRepository) {
+		
+		this.airportRepository = airportRepository;
+	}
+
+
+	@Override
+	public void addAirport(CreateAirportRequest createAirportRequest) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

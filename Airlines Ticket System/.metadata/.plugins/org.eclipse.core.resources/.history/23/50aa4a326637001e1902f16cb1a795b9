@@ -1,0 +1,18 @@
+package com.eticket.ETicket.demo;
+
+import org.modelmapper.ModelMapper;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class ETicketDemoApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(ETicketDemoApplication.class, args);
+	}
+
+	
+	public ModelMapper getModelMapper() {
+		return new ModelMapper();
+	}
+}

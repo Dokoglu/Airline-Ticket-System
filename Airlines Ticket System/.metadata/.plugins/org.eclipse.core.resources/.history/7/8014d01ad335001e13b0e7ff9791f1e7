@@ -1,0 +1,9 @@
+package com.eticket.ETicket.demo.service;
+
+import com.eticket.ETicket.demo.dto.CreateBuyTicketRequest;
+
+public interface TicketService {
+	
+	void buyTicket(CreateBuyTicketRequest buyTicketRequest);
+
+}

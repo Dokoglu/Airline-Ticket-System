@@ -1,0 +1,12 @@
+package com.eticket.ETicket.demo.model;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+@Entity
+public class CreditCard {
+	
+	@Id
+	private int creditCardNumber;
+
+}

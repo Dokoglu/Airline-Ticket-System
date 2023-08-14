@@ -1,0 +1,41 @@
+package com.eticket.ETicket.demo.service;
+
+import org.springframework.stereotype.Service;
+
+import com.eticket.ETicket.demo.dto.CreateFlightRequest;
+import com.eticket.ETicket.demo.model.Flight;
+import com.eticket.ETicket.demo.repository.FlightRepository;
+
+@Service
+public class FlightManager implements FlightService{
+	
+	private final FlightRepository flightRepository;
+	
+
+	public FlightManager(FlightRepository flightRepository) {
+		this.flightRepository = flightRepository;
+	}
+
+
+	@Override
+	public void updateFlightPrice(CreateFlightRequest createFlightRequest, int id) {
+		// TODO Auto-generated method stub
+		
+		Flight flight=this.flightRepository.findById(id).get();
+		double quota=createFlightRequest.getCurrentQuota();
+		double flightPrice=createFlightRequest.
+		if(quota==increaseQuota(quota)) {
+			
+		}
+		
+		this.flightRepository.save(flight);
+	}
+	public double increaseQuota(double currentQuota) {
+		CreateFlightRequest createFlightRequest=new CreateFlightRequest();
+		double quota=createFlightRequest.getCurrentQuota();
+		double newQuota=quota+quota*0.1;
+		quota=newQuota;
+		return quota;
+	}
+
+}

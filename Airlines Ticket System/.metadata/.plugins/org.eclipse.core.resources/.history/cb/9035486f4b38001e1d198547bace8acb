@@ -1,0 +1,10 @@
+package com.eticket.ETicket.demo.service;
+
+import com.eticket.ETicket.demo.dto.CreateFlightRequest;
+
+public interface FlightService {
+	
+	void updateFlightPrice(CreateFlightRequest createFlightRequest, int id);
+	void addFlight(CreateFlightRequest createFlightRequest);
+
+}

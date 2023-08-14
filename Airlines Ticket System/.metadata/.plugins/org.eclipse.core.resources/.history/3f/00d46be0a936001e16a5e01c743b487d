@@ -1,0 +1,22 @@
+package com.eticket.ETicket.demo.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import com.eticket.ETicket.demo.dto.CreateAirlineRequest;
+import com.eticket.ETicket.demo.dto.CreateFlightRequest;
+import com.eticket.ETicket.demo.dto.SearchAirlineRequest;
+import com.eticket.ETicket.demo.dto.SearchFlightRequest;
+import com.eticket.ETicket.demo.model.Airline;
+import com.eticket.ETicket.demo.model.Flight;
+
+public interface AirlineService {
+	
+	void addAirline(CreateAirlineRequest createAirlineRequest);
+	
+	List<Airline> search(SearchAirlineRequest searchAirlineRequest) ;
+	void addFlight(CreateFlightRequest createFlightRequest);
+	List<Flight> searchFlight(SearchFlightRequest searchFlightRequest) throws Exception;
+	Optional<Flight> searchFlight(int id);
+	
+}

@@ -1,0 +1,16 @@
+package com.eticket.ETicket.demo.dto;
+
+public class CreateFlightRequest {
+	
+	private String departureAirport;
+	private String arrivalAirport;
+	
+	public CreateFlightRequest(String departureAirport, String arrivalAirport) {
+		
+		this.departureAirport = departureAirport;
+		this.arrivalAirport = arrivalAirport;
+	}
+	
+	
+
+}

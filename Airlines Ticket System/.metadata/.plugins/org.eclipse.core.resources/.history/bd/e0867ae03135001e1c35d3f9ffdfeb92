@@ -1,0 +1,31 @@
+package com.eticket.ETicket.demo.service;
+
+import org.springframework.stereotype.Service;
+
+import com.eticket.ETicket.demo.dto.CreateRouteRequest;
+import com.eticket.ETicket.demo.dto.SearchRouteRequest;
+import com.eticket.ETicket.demo.repository.RouteRepository;
+
+@Service
+public class RouteManager implements RouteService{
+	
+	private final RouteRepository routeRepository ;
+	
+
+	public RouteManager(RouteRepository routeRepository) {
+		this.routeRepository = routeRepository;
+	}
+
+	@Override
+	public void addRoute(CreateRouteRequest createRouteRequest) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void searchRoute(SearchRouteRequest searchRouteRequest) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

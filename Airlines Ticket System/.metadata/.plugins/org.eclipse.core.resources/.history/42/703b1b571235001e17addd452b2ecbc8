@@ -1,0 +1,17 @@
+package com.eticket.ETicket.demo.dto;
+
+public class SearchAirportRequest {
+	
+	private String airportName;
+
+	public SearchAirportRequest(String airportName) {
+		this.airportName = airportName;
+	}
+
+	public SearchAirportRequest() {
+		
+	}
+	
+	
+
+}

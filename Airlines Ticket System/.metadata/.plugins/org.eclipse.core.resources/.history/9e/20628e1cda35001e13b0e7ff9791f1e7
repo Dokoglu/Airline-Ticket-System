@@ -1,0 +1,16 @@
+package com.eticket.ETicket.demo.service;
+
+import java.util.List;
+
+import com.eticket.ETicket.demo.dto.CreateBuyTicketRequest;
+import com.eticket.ETicket.demo.dto.CreateFlightRequest;
+import com.eticket.ETicket.demo.dto.SearchTicketRequest;
+import com.eticket.ETicket.demo.model.Ticket;
+
+public interface TicketService {
+	
+	void buyTicket(CreateBuyTicketRequest buyTicketRequest);
+	void riseTicketPrice(CreateFlightRequest createFlightRequest);
+	List<Ticket> searchTicket(SearchTicketRequest searchTicketRequest);
+
+}

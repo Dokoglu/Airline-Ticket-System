@@ -1,0 +1,10 @@
+package com.eticket.ETicket.demo.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.eticket.ETicket.demo.model.Airport;
+
+public interface AirportRepository extends JpaRepository<Airport, Integer> {
+	
+
+}

@@ -1,0 +1,115 @@
+package com.eticket.ETicket.demo.model;
+
+import java.util.List;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+
+@Entity
+public class Flight {
+	
+	@Id
+	private int flightID;
+	private String durationOfFlight;
+	private String departureAirport;
+	private String arrivalAirport;
+	private String departureCity;
+	private String arrivalCity;
+	private double currentQuota;
+	private double flightPrice;
+	
+	public Flight(int flightID,String durationOfFlight, String departureAirport,
+			String arrivalAirport, String departureCity, String arrivalCity,
+		 int targetQuota, double flightPrice) {
+		this.flightID = flightID;
+		this.durationOfFlight = durationOfFlight;
+		this.departureAirport = departureAirport;
+		this.arrivalAirport = arrivalAirport;
+		this.departureCity=departureCity;
+		this.arrivalCity=arrivalCity;
+		this.currentQuota=currentQuota;
+		this.flightPrice=flightPrice;
+		
+	}
+	public Flight() {
+		
+		}
+
+	public String getDepartureCity() {
+		return departureCity;
+	}
+
+	public void setDepartureCity(String departureCity) {
+		this.departureCity = departureCity;
+	}
+
+	public String getArrivalCity() {
+		return arrivalCity;
+	}
+
+	public void setArrivalCity(String arrivalCity) {
+		this.arrivalCity = arrivalCity;
+	}
+
+	public void setFlightID(int flightID) {
+		this.flightID = flightID;
+	}
+
+	public int getFlightID() {
+		return flightID;
+	}
+
+
+
+	public String getDurationOfFlight() {
+		return durationOfFlight;
+	}
+
+	public void setDurationOfFlight(String durationOfFlight) {
+		this.durationOfFlight = durationOfFlight;
+	}
+
+	public String getDepartureAirport() {
+		return departureAirport;
+	}
+
+	public void setDepartureAirport(String departureAirport) {
+		this.departureAirport = departureAirport;
+	}
+
+	public String getArrivalAirport() {
+		return arrivalAirport;
+	}
+
+	public void setArrivalAirport(String arrivalAirport) {
+		this.arrivalAirport = arrivalAirport;
+	}
+	
+	public double getCurrentQuota() {
+		return currentQuota;
+	}
+	public void setCurrentQuota(double currentQuota) {
+		this.currentQuota = currentQuota;
+	}
+
+	public double getFlightPrice() {
+		return flightPrice;
+	}
+	public void setFlightPrice(int flightPrice) {
+		this.flightPrice = flightPrice;
+	}
+
+
+	@ManyToOne
+	@JoinColumn(name="airline_ID")
+	private Airline airline;
+	
+//	@OneToMany(mappedBy="flight")
+//	List<Ticket> tickets;
+//	
+	
+
+}

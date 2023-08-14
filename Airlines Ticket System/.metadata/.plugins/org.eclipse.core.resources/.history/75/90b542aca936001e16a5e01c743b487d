@@ -1,0 +1,110 @@
+package com.eticket.ETicket.demo.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.stereotype.Service;
+
+import com.eticket.ETicket.demo.dto.CreateAirlineRequest;
+import com.eticket.ETicket.demo.dto.CreateFlightRequest;
+import com.eticket.ETicket.demo.dto.SearchAirlineRequest;
+import com.eticket.ETicket.demo.dto.SearchFlightRequest;
+import com.eticket.ETicket.demo.model.Airline;
+import com.eticket.ETicket.demo.model.Flight;
+import com.eticket.ETicket.demo.repository.AirlineRepository;
+import com.eticket.ETicket.demo.repository.FlightRepository;
+import com.eticket.ETicket.demo.utilities.mappers.ModelMapperService;
+
+@Service
+public class AirlineManager implements AirlineService {
+	
+	private final AirlineRepository airlineRepository;
+	
+	
+	private ModelMapperService modelMapperService;
+
+	public AirlineManager(AirlineRepository airlineRepository
+			) {
+		this.airlineRepository = airlineRepository;
+		
+	}
+
+	@Override
+	public void addAirline(CreateAirlineRequest createAirlineRequest) {
+		// TODO Auto-generated method stub
+//		Airline airline=new Airline();
+//		airline.setAirlineName(createAirlineRequest.getAirlineName());
+//		airline.setAirlineCountry(createAirlineRequest.getAirlineCountry());
+		Airline airline=this.modelMapperService.forRequest().map(createAirlineRequest, Airline.class);
+		this.airlineRepository.save(airline);
+		
+		
+	}
+
+	@Override
+	public List<Airline> search(SearchAirlineRequest searchAirlineRequest)  {
+		// TODO Auto-generated method stub
+		List<Airline> airline=this.airlineRepository.findAll();
+		if(IsExist(searchAirlineRequest.getAirlineId())) {
+				System.out.println("Suitable result found");
+			}
+			else {
+				System.out.print("Not found");
+			}
+		
+		return airline;
+		
+	}
+	@Override
+	public void addFlight(CreateFlightRequest createFlightRequest) {
+		// TODO Auto-generated method stub
+//		Flight flight=new Flight();
+//		flight.setArrivalAirport(createFlightRequest.getArrivalAirport());
+//		flight.setDepartureAirport(createFlightRequest.getDepartureAirport());
+//		flight.setDepartureCity(createFlightRequest.getDepartureCity());
+//		flight.setArrivalCity(createFlightRequest.getArrivalCity());
+		Flight flight =this.modelMapperService.forRequest().map(createFlightRequest, Flight.class);
+		this.airlineRepository.save(flight);
+		
+	}
+	
+	public boolean IsExist(int i) {
+		if(this.airlineRepository.existsById(i)) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+
+	@Override
+	public List<Flight> searchFlight(SearchFlightRequest searchFlightRequest) throws Exception {
+		// TODO Auto-generated method stub
+		
+		
+		if(IsExistFlight(searchFlightRequest.getId())) {
+			System.out.println("The flight found in this airline");
+		}
+		else {
+			throw new Exception("Not found");
+		}
+		return null;
+		
+	}
+	public boolean IsExistFlight(int id) {
+		if(this.airlineRepository.existsById(id)) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+
+	
+	
+		
+		
+		
+	}
+
+

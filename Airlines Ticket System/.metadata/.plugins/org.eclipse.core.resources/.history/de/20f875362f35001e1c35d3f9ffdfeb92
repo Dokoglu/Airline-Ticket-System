@@ -1,0 +1,18 @@
+package com.eticket.ETicket.demo.dto;
+
+public class CreateRouteRequest {
+	
+	private String startingPoint;
+	private String endingPoint;
+	
+	public CreateRouteRequest(String startingPoint, String endingPoint) {
+		this.startingPoint = startingPoint;
+		this.endingPoint = endingPoint;
+	}
+
+	public CreateRouteRequest() {
+		
+	}
+	
+
+}

@@ -1,0 +1,83 @@
+package com.eticket.ETicket.demo.model;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+@Entity
+public class Flight {
+	
+	@Id
+	private int flightID;
+	private int durationOfFlight;
+	private String departureAirport;
+	private String arrivalAirport;
+	private int economyClassPrice;
+	private int businessClassPrice;
+	
+	public Flight(int flightıd, int durationOfFlight, String departureAirport,
+			String arrivalAirport,
+			int economyClassPrice, int businessClassPrice) {
+		this.flightID = flightID;
+		this.durationOfFlight = durationOfFlight;
+		this.departureAirport = departureAirport;
+		this.arrivalAirport = arrivalAirport;
+		this.economyClassPrice = economyClassPrice;
+		this.businessClassPrice = businessClassPrice;
+	}
+
+	public Flight() {
+		
+	}
+
+	public int getFlightID() {
+		return flightID;
+	}
+
+	public void setFlightNumber(int flightID) {
+		this.flightID = flightID;
+	}
+
+	public int getDurationOfFlight() {
+		return durationOfFlight;
+	}
+
+	public void setDurationOfFlight(int durationOfFlight) {
+		this.durationOfFlight = durationOfFlight;
+	}
+
+	public String getDepartureAirport() {
+		return departureAirport;
+	}
+
+	public void setDepartureAirport(String departureAirport) {
+		this.departureAirport = departureAirport;
+	}
+
+	public String getArrivalAirport() {
+		return arrivalAirport;
+	}
+
+	public void setArrivalAirport(String arrivalAirport) {
+		this.arrivalAirport = arrivalAirport;
+	}
+
+	public int getEconomyClassPrice() {
+		return economyClassPrice;
+	}
+
+	public void setEconomyClassPrice(int economyClassPrice) {
+		this.economyClassPrice = economyClassPrice;
+	}
+
+	public int getBusinessClassPrice() {
+		return businessClassPrice;
+	}
+
+	public void setBusinessClassPrice(int businessClassPrice) {
+		this.businessClassPrice = businessClassPrice;
+	}
+	
+	
+	
+
+}

@@ -1,0 +1,62 @@
+package com.eticket.ETicket.demo.service;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.eticket.ETicket.demo.dto.CreateAirlineRequest;
+import com.eticket.ETicket.demo.dto.SearchAirlineRequest;
+import com.eticket.ETicket.demo.model.Airline;
+import com.eticket.ETicket.demo.repository.AirlineRepository;
+
+@Service
+public class AirlineManager implements AirlineService {
+	
+	private final AirlineRepository airlineRepository;
+	
+
+	public AirlineManager(AirlineRepository airlineRepository) {
+		this.airlineRepository = airlineRepository;
+	}
+
+	@Override
+	public void addAirline(CreateAirlineRequest createAirlineRequest) {
+		// TODO Auto-generated method stub
+		Airline airline=new Airline();
+		airline.setAirlineName(createAirlineRequest.getAirlineName());
+		airline.setAirlineCountry(createAirlineRequest.getAirlineCountry());
+		this.airlineRepository.save(airline);
+		
+		
+	}
+
+	@Override
+	public List<Airline> search(SearchAirlineRequest searchAirlineRequest)  {
+		// TODO Auto-generated method stub
+		List<Airline> airline=this.airlineRepository.findAll();
+		if(IsExist(searchAirlineRequest.getAirlineId())) {
+				System.out.println("Suitable result found");
+			}
+			else {
+				System.out.print("Not found");
+			}
+		
+		return airline;
+		
+	}
+	
+	public boolean IsExist(int i) {
+		if(this.airlineRepository.existsById(i)) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	
+		
+		
+		
+	}
+
+

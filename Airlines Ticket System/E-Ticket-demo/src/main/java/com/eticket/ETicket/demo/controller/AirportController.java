@@ -1,0 +1,34 @@
+package com.eticket.ETicket.demo.controller;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.eticket.ETicket.demo.dto.CreateAirportRequest;
+import com.eticket.ETicket.demo.dto.SearchAirportRequest;
+import com.eticket.ETicket.demo.service.AirportService;
+
+@RestController
+@RequestMapping("/airports")
+public class AirportController {
+	
+	private final AirportService airportService;
+
+	public AirportController(AirportService airportService) {
+		
+		this.airportService = airportService;
+	}
+	
+	@PostMapping("/addAirport")
+	public void addAirport(@RequestBody CreateAirportRequest createAirportRequest) {
+		airportService.addAirport(createAirportRequest);
+	}
+	
+	@GetMapping("/searchAirport")
+	public void searchAirport(@RequestBody SearchAirportRequest searchAirportRequest) throws Exception {
+		airportService.searchAirport(searchAirportRequest);
+	}
+
+}

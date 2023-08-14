@@ -1,0 +1,14 @@
+package com.eticket.ETicket.demo.service;
+
+import java.util.List;
+
+import com.eticket.ETicket.demo.dto.CreateAirportRequest;
+import com.eticket.ETicket.demo.dto.SearchAirportRequest;
+import com.eticket.ETicket.demo.model.Airport;
+
+public interface AirportService {
+	
+	void addAirport(CreateAirportRequest createAirportRequest);
+	List<Airport> searchAirport(SearchAirportRequest searchAirportRequest);
+
+}
